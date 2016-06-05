@@ -1,8 +1,5 @@
-require('ts-node/register');
-
+// An example configuration file.
 exports.config = {
-  baseUrl: 'http://localhost:3000/',
-
   directConnect: true,
 
   // Capabilities to be passed to the webdriver instance.
@@ -11,7 +8,9 @@ exports.config = {
   },
 
   //seleniumAddress: 'http://0.0.0.0:4444',
-  specs: ['test/e2e/src/**/*.ts'],
+  // add proper version number
+  seleniumServerJar: './node_modules/gulp-protractor/node_modules/protractor/selenium/selenium-server-standalone-2.44.0.jar',
+  specs: ['test/e2e/dist/**/*.js'],
 
   plugins: [{
     path: 'aurelia.protractor.js'
@@ -22,7 +21,5 @@ exports.config = {
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000
-  },
-  onPrepare: function() {
   }
 };

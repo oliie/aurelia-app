@@ -21,12 +21,12 @@ function loadAndWaitForAureliaPage(pageUrl) {
   browser.get(pageUrl);
   return browser.executeAsyncScript(
     'var cb = arguments[arguments.length - 1];' +
-    'if (document.querySelector("[aurelia-app]")) { cb("Aurelia composed") }' + 
     'document.addEventListener("aurelia-composed", function (e) {' +
     '  cb("Aurelia App composed")' +
     '}, false);'
   ).then(function(result){
-    return result;
+      console.log(result);
+      return result;
   });
 }
 
@@ -38,7 +38,7 @@ function waitForRouterComplete() {
     '  cb(true)' +
     '});'
   ).then(function(result){
-    return result;
+      return result;
   });
 }
 
