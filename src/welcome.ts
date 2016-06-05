@@ -1,23 +1,34 @@
-import { autoinject } from 'aurelia-framework';
-import { Router } from 'aurelia-router';
+//import {computedFrom} from 'aurelia-framework';
 
-@autoinject
 export class Welcome {
-    constructor( private router: Router ) { }
+  heading: string = 'Welcome to the Aurelia Navigation App';
+  firstName: string = 'John';
+  lastName: string = 'Doe';
+  previousValue: string = this.fullName;
 
-    heading: string = 'Welcome to Aurelia!';
-    firstName: string = 'Oliver';
-    lastName: string = 'Praesto';
+  //Getters can't be directly observed, so they must be dirty checked.
+  //However, if you tell Aurelia the dependencies, it no longer needs to dirty check the property.
+  //To optimize by declaring the properties that this getter is computed from, uncomment the line below
+  //as well as the corresponding import above.
+  //@computedFrom('firstName', 'lastName')
+  get fullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
 
-    get fullName() : string {
-        return `${this.firstName} ${this.lastName}`;
+  submit() {
+    this.previousValue = this.fullName;
+    alert(`Welcome, ${this.fullName}!`);
+  }
+
+  canDeactivate(): boolean {
+    if (this.fullName !== this.previousValue) {
+      return confirm('Are you sure you want to leave?');
     }
+  }
+}
 
-    navigateToUsers() : void {
-        this.router.navigateToRoute('users');
-    }
-
-    submit() : void {
-        alert(`Welcome, ${this.fullName}!`);
-    }
+export class UpperValueConverter {
+  toView(value: string): string {
+    return value && value.toUpperCase();
+  }
 }

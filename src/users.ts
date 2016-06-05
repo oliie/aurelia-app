@@ -1,23 +1,29 @@
-import { autoinject } from 'aurelia-framework';
-import { HttpClient } from 'aurelia-fetch-client';
-import 'fetch';
+import {inject} from 'aurelia-framework';
+import {HttpClient} from 'aurelia-fetch-client';
+import 'isomorphic-fetch';
 
-@autoinject
+interface IUser {
+  avatar_url: string;
+  login: string;
+  html_url: string;
+}
+
+@inject(HttpClient)
 export class Users {
-    heading: string = 'Github Users';
-    users: any[] = [];
+  heading: string = 'Github Users';
+  users: Array<IUser> = [];
 
-    constructor(private http: HttpClient) {
-        http.configure(config => {
-            config
-                .useStandardConfiguration()
-                .withBaseUrl('https://api.github.com/');
-        })
-    }
+  constructor(public http: HttpClient) {
+    http.configure(config => {
+      config
+        .useStandardConfiguration()
+        .withBaseUrl('https://api.github.com/');
+    });
+  }
 
-    activate() {
-        return this.http.fetch('users')
-            .then(response => response.json())
-            .then(users => this.users = users);
-    }
+  activate(): Promise<IUser[]> {
+    return this.http.fetch('users')
+      .then<IUser[]>(response => response.json())
+      .then<IUser[]>(users => this.users = users);
+  }
 }
