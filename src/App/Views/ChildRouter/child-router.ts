@@ -8,7 +8,8 @@ export class ChildRouter {
         config.map([
             { route: ['', 'welcome'], name: 'welcome',       moduleId: 'App/Views/Welcome/welcome',           nav: true, title: 'Welcome' },
             { route: 'users',         name: 'users',         moduleId: 'App/Views/Users/users',               nav: true, title: 'Github Users' },
-            { route: 'child-router',  name: 'child-router',  moduleId: 'App/Views/ChildRouter/child-router',  nav: true, title: 'Child Router' }
+            { route: 'child-router',  name: 'child-router',  moduleId: 'App/Views/ChildRouter/child-router',  nav: true, title: 'Child Router' },
+            { route: 'validation',    name: 'validation',    moduleId: 'App/Views/Validation/validation',     nav: true, title: 'Validation' }
         ]);
 
         this.router = router;
