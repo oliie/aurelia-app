@@ -1,0 +1,11 @@
+template
+    section
+        h2 Validation
+        form(role="form" submit.delegate="validateForm()")
+            .form-group
+                label Förnamn
+                input#firstName.form-control(type='text' value.bind="firstName")
+            .form-group
+                label Efternamn
+                input#lastName.form-control(type='text' value.bind="lastName")
+            button.btn.btn-success(type='submit') Validate
