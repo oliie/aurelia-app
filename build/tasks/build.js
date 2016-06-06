@@ -37,6 +37,7 @@ gulp.task('build-system', function () {
 
 gulp.task('build-pug', function () {
     return gulp.src(paths.pug)
+        .pipe(plumber())
         .pipe(pug())
         .pipe(changed(paths.output, { extension: '.html' }))
         .pipe(gulp.dest(paths.output));
