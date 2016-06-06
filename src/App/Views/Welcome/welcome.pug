@@ -1,0 +1,24 @@
+template
+    require(from="../../Filters/upper")
+
+    section.au-animate
+        h2 ${heading}
+        form(role="form" submit.delegate="submit()")
+            .form-group
+                label(for="fn") First Name
+                input.form-control(type="text" value.bind="firstName" id="fn" placeholder="first name")
+
+            .form-group
+                label(for="ln") Last Name
+                input.form-control(type="text" value.bind="lastName" id="ln" placeholder="last name")
+
+            .form-group
+                label Full Name
+                p.help-block ${fullName | upper}
+
+            button(type="submit" class="btn btn-success") Submit
+
+            h2 ${firstName | myFilter}
+
+            input(type="text" value.bind="user | github")
+            p ${ user }

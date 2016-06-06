@@ -3,6 +3,7 @@ var runSequence = require('run-sequence');
 var changed = require('gulp-changed');
 var plumber = require('gulp-plumber');
 var sass = require('gulp-sass');
+var pug = require('gulp-pug');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var paths = require('../paths');
@@ -28,8 +29,15 @@ gulp.task('build-system', function () {
 });
 
 // copies changed html files to the output directory
-gulp.task('build-html', function () {
-    return gulp.src(paths.html)
+// gulp.task('build-html', function () {
+//     return gulp.src(paths.html)
+//         .pipe(changed(paths.output, { extension: '.html' }))
+//         .pipe(gulp.dest(paths.output));
+// });
+
+gulp.task('build-pug', function () {
+    return gulp.src(paths.pug)
+        .pipe(pug())
         .pipe(changed(paths.output, { extension: '.html' }))
         .pipe(gulp.dest(paths.output));
 });
@@ -56,7 +64,7 @@ gulp.task('build-sass', function () {
 gulp.task('build', function (callback) {
     return runSequence(
         'clean',
-        ['build-system', 'build-html', 'build-css', 'build-sass'],
+        ['build-system', 'build-pug', 'build-css', 'build-sass'],
         callback
     );
 });
