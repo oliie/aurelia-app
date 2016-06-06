@@ -10,18 +10,23 @@ export class CustomForm {
             .isNotEmpty();
     }
 
-    firstName: string = '';
-    lastName: string = 'Man';
+    firstName:  string = 'Oliver';
+    lastName:   string = 'Praesto';
 
     get fullName(): string {
         return `${this.firstName} ${this.lastName}`;
     }
 
     validateForm(): void {
-        this.validation.on(this).validate()
-            .then((x) => {
-                console.log(x);
-                alert(`Welcome, ${this.fullName}!`);
-            });
+        // this.validation.on(this).validate()
+        //     .then((x) => {
+        //         console.log(x);
+        //         alert(`Welcome, ${this.fullName}!`);
+        //     });
+        if (this.firstName.length !== 2) {
+            console.log('Error:', 'First Name not equals to 2 chars');
+        } else {
+            alert(`Welcome, ${this.fullName}!`);
+        }
     }
 }
