@@ -20,13 +20,7 @@ export class APIService {
         return console.error('CUSTOM ERROR:', errorMessage);
     }
 
-    public get( feedName:string ) {
-        return this.http.fetch( feedName )
-            .catch(this.errorHandler)
-            .then(response => response.json());
-    }
-
-    public login( username:string, password:string ) {
+    login( username:string, password:string ) {
         return this.http.fetch('token', {
                 method: 'POST',
                 body: `username=${username}&password=${password}&grant_type=password`
@@ -35,4 +29,11 @@ export class APIService {
             .then(response => response.json());
     }
 
+    get( feedName:string, params?:any ) {
+        return this.http.fetch( feedName, {
+                body: params
+            })
+            .catch(this.errorHandler)
+            .then(response => response.json());
+    }
 }
