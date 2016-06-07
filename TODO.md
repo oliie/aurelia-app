@@ -1,23 +1,23 @@
 # Todo
 
-* ✔ Create: APIService Class
-    * o Provide it with CRUD, Action and Login
-* ✔ Create: default Login-page
-* o Create: Form-sponge for values
-* o Create: DOCUMENTATION.md with default layout and a screenshot
-    * o Make .bat take a variable for output documentation name
-    * o Hide the .bat when finished
-* o Create: Yo-Scaffolder to:
-    * o Create Views
-        * o Prompt for SCSS and Router-setup
-    * o Create Widgets
-        * o Prompt if: Views, ViewModel or Both
-    * o Create Filters
-* o Create: General and customizable loader for APIService
-* o Add: Validation (Parsley?)
-* o Add: Animation-CSS (<https://github.com/gooy/aurelia-animator-velocity>? aurelia-animator-CSS?)
-* o Configure: ES Lint
-* o Customize: README for this project
+* [✔] Create: APIService Class
+    * Provide it with CRUD, Action and Login
+* [✔] Create: default Login-page
+* Create: Form-sponge for values
+* Create: DOCUMENTATION.md with default layout and a screenshot
+    * Make .bat take a variable for output documentation name
+    * Hide the .bat when finished
+* Create: Yo-Scaffolder to:
+    * Create Views
+        * Prompt for SCSS and Router-setup
+    * Create Widgets
+        * Prompt if: Views, ViewModel or Both
+    * Create Filters
+* Create: General and customizable loader for APIService
+* Add: Validation (Parsley?)
+* Add: Animation-CSS (<https://github.com/gooy/aurelia-animator-velocity>? aurelia-animator-CSS?)
+* Configure: ES Lint
+* Customize: README for this project
     * Installation:
         * Typings
         * NPM
@@ -30,6 +30,6 @@
     * E2E
     * Unit Testing
     * ES Lint and how to "fix all problems (VS Code)"
-* o Research: Use TS Lint?
-* o Research: MVC5 Aurelia TS instead?
-* o Research: Extend .eslint own Global-vars?
+* Research: Use TS Lint?
+* Research: MVC5 Aurelia TS instead?
+* Research: Extend .eslint own Global-vars?
