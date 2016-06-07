@@ -1,0 +1,28 @@
+{
+  "name": "aurelia-skeleton-navigation-typescript",
+  "description": "A starter kit for building a standard navigation-style app with Aurelia and TypeScript.",
+  "main": "dist/App/Config/main.js",
+  "authors": [
+    "Oliver Praesto"
+  ],
+  "license": "CC0-1.0",
+  "keywords": [
+    "aurelia",
+    "navigation",
+    "skeleton",
+    "typescript",
+    "vscode"
+  ],
+  "homepage": "https://github.com/oliie/aurelia-app",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.6"
+  }
+}

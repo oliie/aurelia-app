@@ -1,6 +1,5 @@
 import { autoinject } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
-import { Environment } from '../../Configs/environment';
 
 import 'fetch';
 
@@ -10,13 +9,12 @@ export class Users {
     users = [];
 
     constructor(
-        private settings: Environment,
         private http: HttpClient
     ) {
         http.configure(config => {
             config
                 .useStandardConfiguration()
-                .withBaseUrl( settings.baseApiUrl );
+                .withBaseUrl( 'http://api.github.com/' );
         });
     }
 

@@ -1,0 +1,14 @@
+template
+    section.au-animate
+        .row
+            .col-sm-6.col-sm-offset-3
+                h2 Logga in
+                form(submit.delegate="authorize()")
+                    .form-group
+                        label Användarnamn
+                        input.form-control(type="text" value.bind="username")
+                    .form-group
+                        label Lösenord
+                        input.form-control(type="password" value.bind="password")
+                    .form-group
+                        button.btn.btn-default(type="submit") Logga in

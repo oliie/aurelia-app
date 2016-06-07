@@ -8,7 +8,7 @@ template(bindable='router')
                 span.icon-bar
             a.navbar-brand(href='#')
                 i.fa.fa-home
-                span ${router.title}
+                span  ${router.title}
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
             ul.nav.navbar-nav
                 li(repeat.for='row of router.navigation', class="${row.isActive ? 'active' : ''}")

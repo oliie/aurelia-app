@@ -56,7 +56,7 @@ gulp.task('build-sass', function () {
         .pipe(changed(paths.output, { extension: '.css' }))
         .pipe(concat('bundle.css'))
         .pipe(gulp.dest('styles/'));
-})
+});
 
 // this task calls the clean task (located
 // in ./clean.js), then runs the build-system
