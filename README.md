@@ -183,3 +183,15 @@ The app will be exported into ```export``` directory preserving the directory st
 #### Configuration
 The configuration is done by ```bundles.js``` file.
 In addition, ```export.js``` file is available for including individual files.
+
+## Todo
+* Create: APIService Class
+* Create: default Login-page
+* Create: Form-sponge for values
+* Create: DOCUMENTATION.md with default layout and a screenshot
+* Add: Validation (Parsley?)
+* Add: Animation-CSS (https://github.com/gooy/aurelia-animator-velocity? aurelia-animator-CSS?)
+* Configure: ES Lint
+* Customize: README for this project
+* Research: Use TS Lint?
+* Research: MVC5 Aurelia TS instead?
