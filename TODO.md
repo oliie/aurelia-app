@@ -5,8 +5,8 @@
 * [✔] Create: default Login-page
 * Create: Form-sponge for values
 * Create: DOCUMENTATION.md with default layout and a screenshot
-    * Make .bat take a variable for output documentation name
-    * Hide the .bat when finished
+    * [✔] Make .bat take a variable for output documentation name
+    * [✔] Hide the .bat when finished
 * Create: Yo-Scaffolder to:
     * Create Views
         * Prompt for SCSS and Router-setup
