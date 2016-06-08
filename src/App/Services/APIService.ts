@@ -30,7 +30,24 @@ export class APIService {
     }
 
     get( feedName:string, params?:any ) {
-        return this.http.fetch( feedName, {
+        return this.http.fetch( `API/Feed/${feedName}`, {
+                headers: {
+                    'Authorization': 'Bearer ' + sessionStorage.getItem('token'),
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: params
+            })
+            .catch(this.errorHandler)
+            .then(response => response.json());
+    }
+
+
+    put( feedName:string, params?:any ) {
+        return this.http.fetch( `API/Feed/${feedName}`, {
+                headers: {
+                    'Authorization': 'Bearer ' + sessionStorage.getItem('token'),
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
                 body: params
             })
             .catch(this.errorHandler)

@@ -7,6 +7,8 @@
 * Create: DOCUMENTATION.md with default layout and a screenshot
     * [✔] Make .bat take a variable for output documentation name
     * [✔] Hide the .bat when finished
+    * Make sure its included as template
+    * Update template innofactor-way
 * Create: Yo-Scaffolder to:
     * Create Views
         * Prompt for SCSS and Router-setup
