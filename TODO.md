@@ -30,6 +30,7 @@
     * Yeoman / Yo
     * SCSS + BEM
     * Publishing
+        * <http://ilikekillnerds.com/2016/02/the-definitive-guide-to-bundling-exporting-in-aurelia/>
     * E2E
     * Unit Testing
     * ES Lint and how to "fix all problems (VS Code)"
