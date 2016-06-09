@@ -1,18 +1,18 @@
 # Todo
 
-* [✔] Create: APIService Class
-    * Provide it with CRUD, Action and Login
-* [✔] Create: default Login-page
+* `[✔]` Create: APIService Class
+    * `[✔]` Provide it with CRUD, Action and Login
+* `[✔]` Create: default Login-page
 * Create: DOCUMENTATION.md with default layout and a screenshot
-    * [✔] Make .bat take a variable for output documentation name
-    * [✔] Hide the .bat when finished
+    * `[✔]` Make .bat take a variable for output documentation name
+    * `[✔]` Hide the .bat when finished
     * Update template innofactor-way
-* [✔] Create: Yo-Scaffolder to:
-    * [✔] Create Views
-        * [✔] Prompt for SCSS and Router-setup
-    * [✔] Create Widgets
-        * [✔] Prompt if: Views, ViewModel or Both
-    * [✔] Create Filters
+* `[✔]` Create: Yo-Scaffolder to:
+    * `[✔]` Create Views
+        * `[✔]` Prompt for SCSS and Router-setup
+    * `[✔]` Create Widgets
+        * `[✔]` Prompt if: Views, ViewModel or Both
+    * `[✔]` Create Filters
     * Fix scaffold glitch when using `yo` in VS Code
 * Create: Form-sponge for values
 * Create: General and customizable loader for APIService
