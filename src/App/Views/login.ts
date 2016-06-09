@@ -1,5 +1,5 @@
 import { autoinject } from 'aurelia-framework';
-import { APIService } from '../../Services/APIService';
+import { APIService } from '../Services/APIService';
 import { Router } from 'aurelia-router';
 
 @autoinject
@@ -11,7 +11,7 @@ export class Login {
 
     username: string;
     password: string;
-    successRoute: string = 'welcome'
+    successRoute: string = 'welcome';
 
     checkAuthorization(): void {
         let hasToken = !!sessionStorage.getItem('token');
@@ -20,8 +20,8 @@ export class Login {
 
     authorize() {
         return this.API.login(this.username, this.password)
-            .then(token => {
-                sessionStorage.setItem('token', token.access_token);
+            .then(response => {
+                sessionStorage.setItem('token', (<any>response).access_token);
                 this.checkAuthorization();
             });
     }

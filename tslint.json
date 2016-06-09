@@ -6,6 +6,7 @@
         "indent": [true, "spaces"],
         "no-duplicate-variable": true,
         "no-eval": true,
+        "no-consecutive-blank-lines": true,
         "no-internal-module": true,
         "no-trailing-whitespace": true,
         "no-var-keyword": true,
