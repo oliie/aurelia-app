@@ -4,7 +4,6 @@ import { Environment } from '../Configs/environment';
 
 @autoinject
 export class APIService {
-
     constructor(
         private http: HttpClient,
         private environment: Environment
