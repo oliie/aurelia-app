@@ -7,7 +7,7 @@
     * `[✔]` Make .bat take a variable for output documentation name
     * `[✔]` Hide the .bat when finished
     * Update template innofactor-way
-* `[✔]` Create: Yo-Scaffolder to:
+* `[✔]` Create: Yo-Scaffolder (Innorelia?) to:
     * `[✔]` Create Views
         * `[✔]` Prompt for SCSS and Router-setup
     * `[✔]` Create Widgets
@@ -16,6 +16,7 @@
     * Fix scaffold glitch when using `yo` in VS Code
 * Create: Form-sponge for values
 * Create: General and customizable loader for APIService
+* `[✔]` Add: `canActivate()` with token-check. Alexey?
 * Add: Validation (Parsley?)
 * Add: Animation-CSS (<https://github.com/gooy/aurelia-animator-velocity>? aurelia-animator-CSS?)
 * Configure: ES Lint
@@ -28,10 +29,11 @@
     * Documentation
     * Yeoman / Yo
     * SCSS + BEM
-    * Publishing
+    * Publishing / Deployment <http://ilikekillnerds.com/2015/09/aurelia-jspm-deployment-best-practices-unknowns/>
     * E2E
     * Unit Testing
     * ES Lint and how to "fix all problems (VS Code)"
 * Research: Use TS Lint?
 * Research: MVC5 Aurelia TS instead?
 * Research: Extend .eslint own Global-vars?
+* Email: Karin & Jonas vad webbapplikationen är och varför vi behöver den

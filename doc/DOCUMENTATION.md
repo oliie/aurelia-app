@@ -1,30 +1,24 @@
-# Dokumentation
+# Login
+
+## Login-sida
+
+### Design
 
 ![](./images/Login.png)
 
-## B
+### Beskrivning
 
-* En
-* liten
-* punkt-
-* lista
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, ducimus, molestias. In numquam eaque labore aliquam dicta rerum, pariatur nobis nisi nulla porro, culpa provident eligendi sit amet minima minus beatae, magni ut illo aliquid veniam qui assumenda!
 
-### B.1
+```javascript
+alert('Hejsan');
+var x = 12;
 
-> **NOTERA** Att detta är asballt
->
-> Och det bara *Fortsätter*
+for (var i = 0; i < 100; i++) {
+    doThis();
+}
+```
 
-#### B.1.2
+### Viktigt
 
-Detta går ju faktiskt som tänkt! Jättekul :)
-
-### C
-
-## Medlemmar
-
-På denna sida kan du läsa lite om ***Medlemmar***.
-
-## Medlemmar - En Person
-
-Här kan du läsa om **Pelle**
+Viktig information att känna till om Login-sidan

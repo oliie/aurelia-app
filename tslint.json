@@ -13,6 +13,7 @@
         "one-line": [true, "check-open-brace", "check-whitespace"],
         "quotemark": [true, "single"],
         "semicolon": [true],
+        "interface-name": [true, "always-prefix"],
         "triple-equals": [true, "allow-null-check"],
         "typedef-whitespace": [true, {
             "call-signature": "nospace",

@@ -1,17 +1,22 @@
-//import {computedFrom} from 'aurelia-framework';
+import { autoinject } from 'aurelia-framework';
+import { APIService } from '../Services/APIService';
 
+@autoinject
 export class Welcome {
     heading: string = 'Welcome to the Aurelia Navigation App!';
     firstName: string = 'John';
-    user: string = 'oliverpraesto'
+    user: string = 'oliverpraesto';
     lastName: string = 'Doe';
     previousValue: string = this.fullName;
 
-    //Getters can't be directly observed, so they must be dirty checked.
-    //However, if you tell Aurelia the dependencies, it no longer needs to dirty check the property.
-    //To optimize by declaring the properties that this getter is computed from, uncomment the line below
-    //as well as the corresponding import above.
-    //@computedFrom('firstName', 'lastName')
+    constructor(
+        private api: APIService
+    ) { }
+
+    canActivate() {
+        this.api.isTokenValid();
+    }
+
     get fullName() {
         return `${this.firstName} ${this.lastName}`;
     }

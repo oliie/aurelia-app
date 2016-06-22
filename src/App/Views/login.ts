@@ -1,28 +1,18 @@
 import { autoinject } from 'aurelia-framework';
 import { APIService } from '../Services/APIService';
-import { Router } from 'aurelia-router';
 
 @autoinject
 export class Login {
     constructor(
-        private API: APIService,
-        private router: Router
+        private API: APIService
     ) { }
 
-    username: string;
-    password: string;
+    username: string = 'kursportal';
+    password: string = 'Hallo1';
     successRoute: string = 'welcome';
 
-    checkAuthorization(): void {
-        let hasToken = !!sessionStorage.getItem('token');
-        hasToken && this.router.navigate(this.successRoute);
-    }
-
     authorize() {
-        return this.API.login(this.username, this.password)
-            .then(response => {
-                sessionStorage.setItem('token', (<any>response).access_token);
-                this.checkAuthorization();
-            });
+        this.API.isTokenValid();
+        return this.API.login(this.username, this.password, this.successRoute);
     }
 }

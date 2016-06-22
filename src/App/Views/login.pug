@@ -1,14 +1,18 @@
+- var loginText = "Logga in"
+
 template
     section.au-animate
         .row
             .col-sm-6.col-sm-offset-3
-                h2 Logga in
+                h2= loginText
                 form(submit.delegate="authorize()")
-                    .form-group
-                        label Användarnamn
-                        input.form-control(type="text" value.bind="username")
-                    .form-group
-                        label Lösenord
-                        input.form-control(type="password" value.bind="password")
-                    .form-group
-                        button.btn.btn-default(type="submit") Logga in
+                    .row
+                        .col-sm-12
+                            .form-group
+                                input.form-control(type="text" value.bind="username" placeholder="Användarnamn")
+                        .col-sm-8
+                            .form-group
+                                input.form-control(type="password" value.bind="password" placeholder="Lösenord")
+                        .col-sm-4
+                            .form-group
+                                button.btn.btn-primary.btn-block(type="submit")= loginText
