@@ -19,10 +19,6 @@ export class CustomForm {
     firstName:  string = 'Oliver';
     lastName:   string = 'Praesto';
 
-    activate() {
-        console.log('isLoggedIn', this.config.isLoggedIn);
-    }
-
     get fullName(): string {
         return `${this.firstName} ${this.lastName}`;
     }
@@ -32,11 +28,6 @@ export class CustomForm {
     }
 
     validateForm(): void {
-        // this.validation.on(this).validate()
-        //     .then((x) => {
-        //         console.log(x);
-        //         alert(`Welcome, ${this.fullName}!`);
-        //     });
         if (this.firstName.length !== 2) {
             console.log('Error:', 'First Name not equals to 2 chars');
         } else {
