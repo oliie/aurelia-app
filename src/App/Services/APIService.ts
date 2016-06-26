@@ -2,7 +2,6 @@ import { autoinject } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
 import { Configuration } from '../Configs/configuration';
 import { Router } from 'aurelia-router';
-import { AuthenticatedRoutes } from '../Configs/routes';
 
 export interface IPutRequest {
     entityName: string;
@@ -73,7 +72,7 @@ export class APIService {
      * @param  {string} password CWP Password
      * @param  {string} successRoute Route to redirect to after successful login.
      */
-    login(username: string, password: string, successRoute: string) {
+    login(username: string, password: string) {
         return this.http.fetch('token', {
             method: 'POST',
             body: `username=${username}&password=${password}&grant_type=password`
@@ -85,7 +84,7 @@ export class APIService {
             this.config.isLoggedIn = hasResponse;
 
             if ( hasResponse ) {
-                this.setSessionAndLogin(response, successRoute);
+                this.setSessionAndLogin(response, this.config.landingRoute);
             }
         });
     }
@@ -102,10 +101,10 @@ export class APIService {
 
         if ( hasSession ) {
             let expires: any = new Date(session['.expires']);
-            let isValid: boolean = (expires > now);
+            let isTokenValid: boolean = (expires > now);
 
-            this.config.isLoggedIn = isValid;
-            return (typeof isValid === 'boolean') ? isValid : false;
+            this.config.isLoggedIn = isTokenValid;
+            return (typeof isTokenValid === 'boolean') ? isTokenValid : false;
         }
 
         this.config.isLoggedIn = false;

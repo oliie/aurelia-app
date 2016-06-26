@@ -1,7 +1,8 @@
 export class Configuration {
-    projectTitle:   string  = 'Innorelia';
-    baseApiUrl:     string  = 'http://cinapi.azurewebsites.net/';
-    isLoggedIn:     boolean;
-    landingRoute:   string  = 'welcome';
-    failureRoute:   string  = 'login';
+    projectTitle:       string  = 'Innorelia';
+    baseApiUrl:         string  = 'http://cinapi.azurewebsites.net/';
+    landingRoute:       string  = 'welcome';
+    notAuthorizedRoute: string  = 'login';
+
+    isLoggedIn:         boolean;
 }

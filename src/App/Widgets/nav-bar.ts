@@ -6,6 +6,7 @@ import { APIService } from '../Services/APIService';
 @autoinject
 export class NavBar {
     @bindable router: Router = null;
+
     constructor(
         private API: APIService,
         private config: Configuration
@@ -18,6 +19,6 @@ export class NavBar {
     logOut() {
         sessionStorage.clear();
         this.config.isLoggedIn = false;
-        this.router.navigate(this.config.failureRoute);
+        this.router.navigate(this.config.notAuthorizedRoute);
     }
 }

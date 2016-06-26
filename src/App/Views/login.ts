@@ -1,6 +1,5 @@
 import { autoinject } from 'aurelia-framework';
 import { APIService } from '../Services/APIService';
-import { AuthenticatedRoutes } from '../Configs/routes';
 import { Router } from 'aurelia-router';
 import { Configuration } from '../Configs/configuration';
 
@@ -8,7 +7,6 @@ import { Configuration } from '../Configs/configuration';
 export class Login {
     constructor(
         private API: APIService,
-        private authRoutes: AuthenticatedRoutes,
         private router: Router,
         private config: Configuration
     ) { }
@@ -17,7 +15,7 @@ export class Login {
     password: string = 'Hallo1';
 
     authorize() {
-        return this.API.login(this.username, this.password, this.config.landingRoute);
+        return this.API.login(this.username, this.password);
     }
 
     canActivate() {

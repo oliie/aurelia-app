@@ -5,18 +5,19 @@ import { Router } from 'aurelia-router';
 
 @autoinject
 export class Welcome {
-    heading: string = 'Welcome to the Aurelia Navigation App!';
-    firstName: string = 'John';
-    user: string = 'oliverpraesto';
-    lastName: string = 'Doe';
-    previousValue: string = this.fullName;
-    alreadyLoggedInRoute: string = this.config.landingRoute;
 
     constructor(
         private API: APIService,
         private config: Configuration,
         private router: Router
     ) { }
+
+    heading: string = 'Welcome to the Aurelia Navigation App!';
+    firstName: string = 'John';
+    user: string = 'oliverpraesto';
+    lastName: string = 'Doe';
+    previousValue: string = this.fullName;
+    alreadyLoggedInRoute: string = this.config.landingRoute;
 
     canActivate() {
         return this.API.isTokenValid();
