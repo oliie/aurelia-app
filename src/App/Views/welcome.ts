@@ -1,5 +1,7 @@
 import { autoinject } from 'aurelia-framework';
 import { APIService } from '../Services/APIService';
+import { Configuration } from '../Configs/configuration';
+import { Router } from 'aurelia-router';
 
 @autoinject
 export class Welcome {
@@ -8,13 +10,16 @@ export class Welcome {
     user: string = 'oliverpraesto';
     lastName: string = 'Doe';
     previousValue: string = this.fullName;
+    alreadyLoggedInRoute: string = this.config.landingRoute;
 
     constructor(
-        private api: APIService
+        private API: APIService,
+        private config: Configuration,
+        private router: Router
     ) { }
 
     canActivate() {
-        this.api.isTokenValid();
+        return this.API.isTokenValid();
     }
 
     get fullName() {

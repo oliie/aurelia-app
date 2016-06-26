@@ -1,5 +1,6 @@
 template
-    require(from='App/Widgets/NavBar/nav-bar.html')
+    require(from='App/Widgets/nav-bar')
     nav-bar(router.bind='router')
     .page-host
-        router-view
+        .container
+            router-view

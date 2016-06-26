@@ -1,8 +1,19 @@
-import {Router, RouterConfiguration} from 'aurelia-router';
+import { autoinject } from 'aurelia-framework';
+import { Router, RouterConfiguration } from 'aurelia-router';
+import { APIService } from '../Services/APIService';
 
+@autoinject
 export class ChildRouter {
     heading = 'Child Router';
     router: Router;
+
+    constructor(
+        private API: APIService
+    ) { }
+
+    canActivate() {
+        return this.API.isTokenValid();
+    }
 
     configureRouter(config: RouterConfiguration, router: Router) {
         config.map([

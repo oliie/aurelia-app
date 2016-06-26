@@ -1,9 +1,15 @@
 import { autoinject } from 'aurelia-framework';
 import { Validation } from 'aurelia-validation';
+import { Configuration } from '../Configs/configuration';
+import { APIService } from '../Services/APIService';
 
 @autoinject
 export class CustomForm {
-    constructor(private validation: Validation) {
+    constructor(
+        private config: Configuration,
+        private validation: Validation,
+        private API: APIService
+    ) {
         this.validation.on(this.validateForm)
             .ensure('firstName')
             .hasMinLength(3)
@@ -13,8 +19,16 @@ export class CustomForm {
     firstName:  string = 'Oliver';
     lastName:   string = 'Praesto';
 
+    activate() {
+        console.log('isLoggedIn', this.config.isLoggedIn);
+    }
+
     get fullName(): string {
         return `${this.firstName} ${this.lastName}`;
+    }
+
+    canActivate() {
+        return this.API.isTokenValid();
     }
 
     validateForm(): void {

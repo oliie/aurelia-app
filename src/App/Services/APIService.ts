@@ -1,8 +1,8 @@
 import { autoinject } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
-import { Environment } from '../Configs/environment';
+import { Configuration } from '../Configs/configuration';
 import { Router } from 'aurelia-router';
-import { authenticatedRoutes } from '../Configs/routes';
+import { AuthenticatedRoutes } from '../Configs/routes';
 
 export interface IPutRequest {
     entityName: string;
@@ -24,13 +24,13 @@ export interface IPostRequest {
 export class APIService {
     constructor(
         private http: HttpClient,
-        private environment: Environment,
+        private config: Configuration,
         private router: Router
     ) {
         http.configure(config => {
             config
                 .useStandardConfiguration()
-                .withBaseUrl(this.environment.baseApiUrl);
+                .withBaseUrl(this.config.baseApiUrl);
         });
     }
 
@@ -82,11 +82,11 @@ export class APIService {
         .catch(this.errorHandler)
         .then(response => {
             let hasResponse: boolean = !!response;
-            authenticatedRoutes.forEach(route => {
-                this.router.addRoute(route);
-            });
+            this.config.isLoggedIn = hasResponse;
 
-            hasResponse && this.setSessionAndLogin(response, successRoute);
+            if ( hasResponse ) {
+                this.setSessionAndLogin(response, successRoute);
+            }
         });
     }
 
@@ -103,10 +103,13 @@ export class APIService {
         if ( hasSession ) {
             let expires: any = new Date(session['.expires']);
             let isValid: boolean = (expires > now);
-            return isValid ? isValid : this.router.navigate('login');
+
+            this.config.isLoggedIn = isValid;
+            return (typeof isValid === 'boolean') ? isValid : false;
         }
 
-        return this.router.navigate('login');
+        this.config.isLoggedIn = false;
+        return false;
     }
 
     /**

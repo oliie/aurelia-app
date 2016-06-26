@@ -1,6 +1,9 @@
-export var authenticatedRoutes = [
-    { route: 'welcome',       name: 'welcome',      moduleId: 'App/Views/welcome',      nav: true, title: 'Welcome' },
-    { route: 'users',         name: 'users',        moduleId: 'App/Views/users',        nav: true, title: 'Github Users' },
-    { route: 'child-router',  name: 'child-router', moduleId: 'App/Views/child-router', nav: true, title: 'Child Router' },
-    { route: 'custom-form',   name: 'custom-form',  moduleId: 'App/Views/custom-form',  nav: true, title: 'Custom Form' }
-];
+import { autoinject } from 'aurelia-framework';
+import { Router } from 'aurelia-router';
+
+@autoinject
+export class AuthenticatedRoutes {
+    constructor(
+        private router: Router
+    ) { }
+}
