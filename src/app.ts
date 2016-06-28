@@ -19,25 +19,25 @@ export class App {
                 moduleId: 'App/Views/login',
                 nav: false,
                 title: 'Login'
-            },{
+            }, {
                 route: 'welcome',
                 name: 'welcome',
                 moduleId: 'App/Views/welcome',
                 nav: true,
                 title: 'Welcome'
-            },{
+            }, {
                 route: 'users',
                 name: 'users',
                 moduleId: 'App/Views/users',
                 nav: false,
                 title: 'Github Users'
-            },{
+            }, {
                 route: 'child-router',
                 name: 'child-router',
                 moduleId: 'App/Views/child-router',
                 nav: true,
                 title: 'Child Router'
-            },{
+            }, {
                 route: 'custom-form',
                 name: 'custom-form',
                 moduleId: 'App/Views/custom-form',

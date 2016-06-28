@@ -42,11 +42,17 @@ export class APIService {
         'X-Requested-With': 'XMLHttpRequest'
     };
 
-    private errorHandler(errorMessage: any) {
+    private errorHandler(
+        errorMessage: any
+    ) {
         return console.error('CUSTOM ERROR:', errorMessage);
     }
 
-    private baseApiRequest( service: string, method: string, params: any ) {
+    private baseApiRequest(
+        service: string,
+        method: string,
+        params: any
+    ) {
         return this.http.fetch(service, {
             method: method,
             headers: this.headers,
@@ -58,7 +64,10 @@ export class APIService {
         .catch(this.errorHandler);
     }
 
-    private setSessionAndLogin(response: any, successRoute: string): void {
+    private setSessionAndLogin(
+        response: any,
+        successRoute: string
+    ): void {
         sessionStorage.setItem('token', (<any>response).access_token);
         sessionStorage.setItem('session', JSON.stringify(response));
         this.router.navigate(successRoute);
@@ -72,7 +81,10 @@ export class APIService {
      * @param  {string} password CWP Password
      * @param  {string} successRoute Route to redirect to after successful login.
      */
-    login(username: string, password: string) {
+    login(
+        username: string,
+        password: string
+    ) {
         return this.http.fetch('token', {
             method: 'POST',
             body: `username=${username}&password=${password}&grant_type=password`
@@ -118,7 +130,10 @@ export class APIService {
      * @param  {string} feedName Name of CWP Feed
      * @param  {any} parameters? Optional parameters to CWP Feed (defined by {querystring:field_name})
      */
-    get(feedName: string, parameters?: any) {
+    get(
+        feedName: string,
+        parameters?: any
+    ) {
         return this.baseApiRequest(`API/Feed/${feedName}`, 'GET', parameters);
     }
 
@@ -128,7 +143,9 @@ export class APIService {
      * @method post
      * @param {IPostRequest} parameters { entityName: string, attributes?: { fieldName: value } }
      */
-    post(parameters: IPostRequest) {
+    post(
+        parameters: IPostRequest
+    ) {
         return this.baseApiRequest(`API/Entity`, 'POST', parameters);
     }
 
@@ -138,7 +155,9 @@ export class APIService {
      * @method put
      * @param {IPutRequest} parameters { entityName: string, entityId: GUID, attributes: { fieldName: value } }
      */
-    put(parameters: IPutRequest) {
+    put(
+        parameters: IPutRequest
+    ) {
         return this.baseApiRequest(`API/Entity`, 'PUT', parameters);
     }
 
@@ -148,7 +167,9 @@ export class APIService {
      * @method delete
      * @param {IDeleteRequest} parameters { entityName: string, entityId: GUID }
      */
-    delete(parameters: IDeleteRequest) {
+    delete(
+        parameters: IDeleteRequest
+    ) {
         return this.baseApiRequest(`API/Entity`, 'DELETE', parameters);
     }
 
@@ -159,7 +180,10 @@ export class APIService {
      * @param  {string} pluginName Name of the Plugin. Requires CWP Policy with plugin name as `entity`.
      * @param  {any} parameters Object with keys required by plugin.
      */
-    action(pluginName: string, parameters: any) {
+    action(
+        pluginName: string,
+        parameters: any
+    ) {
         return this.baseApiRequest(`API/Action/${pluginName}`, 'ACTION', parameters);
     }
 }
